@@ -1,14 +1,14 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 import "../styles/PhotoListItem.scss";
 
 const PhotoListItem = (props) => {
   return (
     <>
-      <img src={props.imageSource} alt="Photo"/> <br/>
-      <img src={props.profile} alt="Profile"/> <br/>
-      {props.username} <br/>
-      {props.city}, {props.country}
+      <img src={props.photo.imageSource} alt="Photo"/> <br/>
+      <img src={props.photo.profile} alt="Profile"/> <br/>
+      {props.photo.username} <br/>
+      {props.photo.location.city}, {props.photo.location.country}
     </>
   )
 };
