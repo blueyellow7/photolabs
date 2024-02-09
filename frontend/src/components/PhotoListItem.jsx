@@ -3,10 +3,10 @@ import "../styles/PhotoListItem.scss";
 import PhotoFavButton from 'components/PhotoFavButton';
 
 
-const PhotoListItem = ({ photoId, regularPhoto, profilePhoto, username, location }) => {
+const PhotoListItem = ({ photoId, regularPhoto, profilePhoto, username, location, likesArray, likesStoringFunction }) => {
   return (
     <div className="photo-list__item">
-      <PhotoFavButton />
+      <PhotoFavButton photoId={photoId} likesArray={likesArray} likesStoringFunction={likesStoringFunction} />
 
       <img src={regularPhoto} alt="Photo" className="photo-list__image"/>
       
