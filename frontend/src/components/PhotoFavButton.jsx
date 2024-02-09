@@ -4,19 +4,17 @@ import '../styles/PhotoFavButton.scss';
 
 
 function PhotoFavButton({ photoId, likesArray, likesStoringFunction }) {
-  const [like, setLike] = useState();
+  // Initialize 'like' state based on whether 'photoId' is in likesArray
+  const [like, setLike] = useState(likesArray.includes(photoId));
   const handleLike = () => {
-    setLike((like) => !like)
+    setLike((prevlike) => !prevlike)
   };
 
   return (
     <div className="photo-list__fav-icon" 
       onClick={() => { 
         handleLike()
-        
-        if (!like) {
-          likesStoringFunction(photoId)
-        }
+        likesStoringFunction(photoId)
       }}
     >
       <div className="photo-list__fav-icon-svg">
