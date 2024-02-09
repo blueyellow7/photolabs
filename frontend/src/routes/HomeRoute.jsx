@@ -21,7 +21,7 @@ const HomeRoute = ({ topics, photos }) => {
 
   return (
     <div className="home-route">
-      <TopNavigation topics={topics} />
+      <TopNavigation topics={topics} likesArray={likesArray} />
       <PhotoList photos={photos} likesArray={likesArray} likesStoringFunction={likesStoringFunction} />
     </div>
   );
