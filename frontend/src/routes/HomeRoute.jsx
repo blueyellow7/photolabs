@@ -3,7 +3,7 @@ import '../styles/HomeRoute.scss';
 import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 
-const HomeRoute = ({ topics, photos }) => {
+const HomeRoute = ({ topics, photos, showModal, handleShowModal }) => {
   const [likesArray, setLikesArray] = useState([]);
   const likesStoringFunction = (photoId) => {
     setLikesArray((prev) => {
@@ -17,7 +17,13 @@ const HomeRoute = ({ topics, photos }) => {
   return (
     <div className="home-route">
       <TopNavigation topics={topics} likesArray={likesArray} />
-      <PhotoList photos={photos} likesArray={likesArray} likesStoringFunction={likesStoringFunction} />
+      <PhotoList 
+        photos={photos}
+        likesArray={likesArray}
+        likesStoringFunction={likesStoringFunction}
+        showModal={showModal}
+        handleShowModal={handleShowModal} 
+      />
     </div>
   );
 };
