@@ -8,10 +8,10 @@ const useApplicationData = () => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   // function triggered by PhotoFavButton's onClick event:
-  // if likesArray already has photo id related to clicked <3 button, remove id from array -> else, update likesArray with new id
+  // if likesArray already has photo id related to clicked <3 button, remove id from array -> else, return likesArray with new id
   const handleLikesArray = (photoId) => {
     setLikesArray((prev) => {
-      return prev.includes(photoId) ? prev.filter(id => id !== photoId) : prev = [...prev, photoId];
+      return prev.includes(photoId) ? prev.filter(id => id !== photoId) : [...prev, photoId];
     })
   }
   
@@ -26,8 +26,7 @@ const useApplicationData = () => {
   // finds and returns photo data of clicked on img using photo id as arguement
   const handleSelectedPhoto = (selectedId) => {
     setSelectedPhoto((prev) => {
-      prev = photos.find((photo) => photo.id === selectedId);
-      return prev;
+      return photos.find((photo) => photo.id === selectedId);
     })
   }
 
