@@ -3,7 +3,7 @@ import "../styles/PhotoListItem.scss";
 import PhotoFavButton from 'components/PhotoFavButton';
 
 
-const PhotoListItem = ({ photoId, regularPhoto, profilePhoto, username, location, likesArray, likesStoringFunction, showModal, handleShowModal, selectedPhoto, handleSelectedPhoto }) => {
+const PhotoListItem = ({ photoId, regularPhoto, profilePhoto, name, location, likesArray, likesStoringFunction, showModal, handleShowModal, selectedPhoto, handleSelectedPhoto }) => {
   return (
     <div className="photo-list__item">
       <PhotoFavButton photoId={photoId} likesArray={likesArray} likesStoringFunction={likesStoringFunction} />
@@ -19,7 +19,7 @@ const PhotoListItem = ({ photoId, regularPhoto, profilePhoto, username, location
       <div className="photo-list__user-details">
         <img src={profilePhoto} alt="Profile" className="photo-list__user-profile"/>
         <div className="photo-list__user-info">
-          {username}
+          {name}
           <p className="photo-list__user-location">{location.city}, {location.country}</p>
         </div>
       </div>
