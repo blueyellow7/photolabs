@@ -3,12 +3,12 @@ import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
 
-function PhotoFavButton({ photoId, likesArray, likesStoringFunction }) {
+function PhotoFavButton({ photoId, likesArray, handleLikesArray }) {
   return (
     <div className="photo-list__fav-icon" 
       onClick={() => {
-        {/* likesStoringFunction adds and removes photoId from likesArray when like button is clicked */} 
-        likesStoringFunction(photoId)
+        {/* handleLikesArray adds and removes photoId from likesArray when like button is clicked */} 
+        handleLikesArray(photoId)
       }}
     >
       <div className="photo-list__fav-icon-svg">

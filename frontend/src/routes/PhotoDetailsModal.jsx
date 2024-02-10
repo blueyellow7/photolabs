@@ -5,7 +5,7 @@ import PhotoList from 'components/PhotoList';
 import PhotoFavButton from 'components/PhotoFavButton';
 
 
-const PhotoDetailsModal = ({ likesArray, likesStoringFunction, showModal, handleShowModal, selectedPhoto, handleSelectedPhoto }) => {
+const PhotoDetailsModal = ({ likesArray, handleLikesArray, showModal, handleShowModal, selectedPhoto, handleSelectedPhoto }) => {
 
   // turn similar_photos object within selectPhoto object into an array 
   const similarPhotosArray = Object.values(selectedPhoto.similar_photos);
@@ -16,7 +16,7 @@ const PhotoDetailsModal = ({ likesArray, likesStoringFunction, showModal, handle
         <img src={closeSymbol} alt="close symbol"/>
       </button>
 
-      <PhotoFavButton photoId={selectedPhoto.id} likesArray={likesArray} likesStoringFunction={likesStoringFunction} />
+      <PhotoFavButton photoId={selectedPhoto.id} likesArray={likesArray} handleLikesArray={handleLikesArray} />
       
       <img className="photo-details-modal__image photo-details-modal__top-bar" src={selectedPhoto.urls.full} alt="full photo"/>
 
@@ -31,7 +31,7 @@ const PhotoDetailsModal = ({ likesArray, likesStoringFunction, showModal, handle
       <p className="photo-details-modal__header">Similar Photos</p>
       <PhotoList 
         photos={similarPhotosArray}
-        likesArray={likesArray} likesStoringFunction={likesStoringFunction}
+        likesArray={likesArray} handleLikesArray={handleLikesArray}
         showModal={showModal} handleShowModal={handleShowModal}
         selectedPhoto={selectedPhoto} handleSelectedPhoto={handleSelectedPhoto}
       />
