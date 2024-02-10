@@ -12,23 +12,22 @@ const useApplicationData = () => {
   const handleLikesArray = (photoId) => {
     setLikesArray((prev) => {
       return prev.includes(photoId) ? prev.filter(id => id !== photoId) : [...prev, photoId];
-    })
-  }
+    });
+  };
   
   // function triggered by onClick event on PhotoListItem img + onClick event on modal close button:
   // change to opposite (truthy<->falsey) from prev state (initial=false) to toggle opening/closing of modal
   const handleModalView = () => { 
-    setModalView(prev => !prev)
-
-  }
+    setModalView(prev => !prev);
+  };
 
   // function triggered by onClick event in PhotoListItem:
   // finds and returns photo data of clicked on img using photo id as arguement
   const handleSelectedPhoto = (selectedId) => {
     setSelectedPhoto((prev) => {
-      return photos.find((photo) => photo.id === selectedId);
-    })
-  }
+      return prev = photos.find((photo) => photo.id === selectedId);
+    });
+  };
 
   return { 
     state: {
@@ -40,6 +39,6 @@ const useApplicationData = () => {
     handleModalView,
     handleSelectedPhoto
   };
-}
+};
 
 export default useApplicationData;

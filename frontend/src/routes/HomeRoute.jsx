@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/HomeRoute.scss';
 import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 
-const HomeRoute = ({ topics, photos, likesArray, handleLikesArray, modalView, handleModalView, selectedPhoto, handleSelectedPhoto }) => {
+const HomeRoute = ({ topics, photos, likesArray, handleLikesArray, handleModalView, handleSelectedPhoto }) => {
 
   return (
     <div className="home-route">
@@ -11,8 +11,8 @@ const HomeRoute = ({ topics, photos, likesArray, handleLikesArray, modalView, ha
       <PhotoList 
         photos={photos}
         likesArray={likesArray} handleLikesArray={handleLikesArray}
-        modalView={modalView} handleModalView={handleModalView}
-        selectedPhoto={selectedPhoto} handleSelectedPhoto={handleSelectedPhoto}
+        handleModalView={handleModalView}
+        handleSelectedPhoto={handleSelectedPhoto}
       />
     </div>
   );

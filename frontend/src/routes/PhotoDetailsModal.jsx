@@ -5,9 +5,9 @@ import PhotoList from 'components/PhotoList';
 import PhotoFavButton from 'components/PhotoFavButton';
 
 
-const PhotoDetailsModal = ({ likesArray, handleLikesArray, modalView, handleModalView, selectedPhoto, handleSelectedPhoto }) => {
+const PhotoDetailsModal = ({ likesArray, handleLikesArray, handleModalView, selectedPhoto, handleSelectedPhoto }) => {
 
-  // turn similar_photos object within selectPhoto object into an array 
+  // turn similar_photos object within selectedPhoto object into an array 
   const similarPhotosArray = Object.values(selectedPhoto.similar_photos);
 
   return (
@@ -16,7 +16,11 @@ const PhotoDetailsModal = ({ likesArray, handleLikesArray, modalView, handleModa
         <img src={closeSymbol} alt="close symbol"/>
       </button>
 
-      <PhotoFavButton photoId={selectedPhoto.id} likesArray={likesArray} handleLikesArray={handleLikesArray} />
+      <PhotoFavButton
+        photoId={selectedPhoto.id}
+        likesArray={likesArray}
+        handleLikesArray={handleLikesArray}
+      />
       
       <img className="photo-details-modal__image photo-details-modal__top-bar" src={selectedPhoto.urls.full} alt="full photo"/>
 
@@ -24,7 +28,9 @@ const PhotoDetailsModal = ({ likesArray, handleLikesArray, modalView, handleModa
         <img src={selectedPhoto.user.profile} alt="Profile" className="photo-details-modal__photographer-profile"/>
         <div className="photo-details-modal__photographer-info">
           {selectedPhoto.user.name}
-          <p className="photo-details-modal__photographer-location">{selectedPhoto.location.city}, {selectedPhoto.location.country}</p>
+          <p className="photo-details-modal__photographer-location">
+            {selectedPhoto.location.city}, {selectedPhoto.location.country}
+          </p>
         </div>
       </div>
 
@@ -32,8 +38,8 @@ const PhotoDetailsModal = ({ likesArray, handleLikesArray, modalView, handleModa
       <PhotoList 
         photos={similarPhotosArray}
         likesArray={likesArray} handleLikesArray={handleLikesArray}
-        modalView={modalView} handleModalView={handleModalView}
-        selectedPhoto={selectedPhoto} handleSelectedPhoto={handleSelectedPhoto}
+        handleModalView={handleModalView}
+        handleSelectedPhoto={handleSelectedPhoto}
       />
     </div>
   )

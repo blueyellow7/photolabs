@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.scss';
 import photos from 'mocks/photos';
 import topics from 'mocks/topics';
@@ -8,7 +8,7 @@ import useApplicationData from 'hooks/useApplicationData';
 
 
 const App = () => {
-  /* custom hook that handles our whole app's state */
+  // custom hook that handles our whole app's state
   const { state:{ likesArray, modalView, selectedPhoto }, handleLikesArray, handleModalView, handleSelectedPhoto } = useApplicationData();
 
   return (
@@ -18,7 +18,7 @@ const App = () => {
         topics={topics}
         likesArray={likesArray} handleLikesArray={handleLikesArray}
         modalView={modalView} handleModalView={handleModalView}
-        selectedPhoto={selectedPhoto} handleSelectedPhoto={handleSelectedPhoto}
+        handleSelectedPhoto={handleSelectedPhoto}
       />
 
       {/* only if 'ModalView' state = true, render PhotoDetailsModal */}
