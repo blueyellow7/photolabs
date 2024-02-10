@@ -2,12 +2,13 @@ import React from 'react';
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
+import PhotoFavButton from 'components/PhotoFavButton';
+
 
 const PhotoDetailsModal = ({ likesArray, likesStoringFunction, showModal, handleShowModal, selectedPhoto, handleSelectedPhoto }) => {
 
   // turn similar_photos object within selectPhoto object into an array 
   const similarPhotosArray = Object.values(selectedPhoto.similar_photos);
-  console.log('similarPhotosArray:', similarPhotosArray)
 
   return (
     <div className="photo-details-modal">
@@ -15,8 +16,10 @@ const PhotoDetailsModal = ({ likesArray, likesStoringFunction, showModal, handle
         <img src={closeSymbol} alt="close symbol"/>
       </button>
 
-      <img className="photo-details-modal__image" src={selectedPhoto.urls.full} alt="full photo"/>
+      <PhotoFavButton photoId={selectedPhoto.id} likesArray={likesArray} likesStoringFunction={likesStoringFunction} />
       
+      <img className="photo-details-modal__image photo-details-modal__top-bar" src={selectedPhoto.urls.full} alt="full photo"/>
+
       <div className="photo-details-modal__photographer-details">
         <img src={selectedPhoto.user.profile} alt="Profile" className="photo-details-modal__photographer-profile"/>
         <div className="photo-details-modal__photographer-info">
