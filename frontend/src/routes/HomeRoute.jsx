@@ -3,7 +3,7 @@ import '../styles/HomeRoute.scss';
 import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 
-const HomeRoute = ({ topics, photos, likesArray, handleLikesArray, showModal, handleShowModal, selectedPhoto, handleSelectedPhoto }) => {
+const HomeRoute = ({ topics, photos, likesArray, handleLikesArray, modalView, handleModalView, selectedPhoto, handleSelectedPhoto }) => {
 
   return (
     <div className="home-route">
@@ -11,7 +11,7 @@ const HomeRoute = ({ topics, photos, likesArray, handleLikesArray, showModal, ha
       <PhotoList 
         photos={photos}
         likesArray={likesArray} handleLikesArray={handleLikesArray}
-        showModal={showModal} handleShowModal={handleShowModal}
+        modalView={modalView} handleModalView={handleModalView}
         selectedPhoto={selectedPhoto} handleSelectedPhoto={handleSelectedPhoto}
       />
     </div>

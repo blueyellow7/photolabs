@@ -18,10 +18,10 @@ const App = () => {
     })
   }
 
-  // pass down handleShowModal to the onClick listener in the PhotoItemList image, and the PhotoDetailModal [x] button. when photo is clicked, handleShowModal will change showModal state to 'true'. when [x] is clicked it will change to 'false'
-  const [showModal, setShowModal] = useState(false);
-  const handleShowModal = () => { 
-    setShowModal(prev => !prev)
+  // pass down handleModalView to the onClick listener in the PhotoItemList image, and the PhotoDetailModal [x] button. when photo is clicked, handleModalView will change ModalView state to 'true'. when [x] is clicked it will change to 'false'
+  const [modalView, setModalView] = useState(false);
+  const handleModalView = () => { 
+    setModalView(prev => !prev)
   }
 
   // pass down the handleSelectedPhoto function to the onClick listener in PhotoItemList. use the photoId data available in PhotoItemList as the arguement. function will change the selectedPhoto state to return the respective photo object.
@@ -39,14 +39,14 @@ const App = () => {
         photos={photos}
         topics={topics}
         likesArray={likesArray} handleLikesArray={handleLikesArray}
-        showModal={showModal} handleShowModal={handleShowModal}
+        modalView={modalView} handleModalView={handleModalView}
         selectedPhoto={selectedPhoto} handleSelectedPhoto={handleSelectedPhoto}
       />
 
-      {/* only if 'showModal' state = true, render PhotoDetailsModal */}
-      { showModal && <PhotoDetailsModal
+      {/* only if 'ModalView' state = true, render PhotoDetailsModal */}
+      { modalView && <PhotoDetailsModal
                         likesArray={likesArray} handleLikesArray={handleLikesArray} 
-                        showModal={showModal} handleShowModal={handleShowModal}
+                        modalView={modalView} handleModalView={handleModalView}
                         selectedPhoto={selectedPhoto} handleSelectedPhoto={handleSelectedPhoto}
                       /> 
       }

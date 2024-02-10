@@ -5,14 +5,14 @@ import PhotoList from 'components/PhotoList';
 import PhotoFavButton from 'components/PhotoFavButton';
 
 
-const PhotoDetailsModal = ({ likesArray, handleLikesArray, showModal, handleShowModal, selectedPhoto, handleSelectedPhoto }) => {
+const PhotoDetailsModal = ({ likesArray, handleLikesArray, modalView, handleModalView, selectedPhoto, handleSelectedPhoto }) => {
 
   // turn similar_photos object within selectPhoto object into an array 
   const similarPhotosArray = Object.values(selectedPhoto.similar_photos);
 
   return (
     <div className="photo-details-modal">
-      <button onClick={handleShowModal} className="photo-details-modal__close-button">
+      <button onClick={handleModalView} className="photo-details-modal__close-button">
         <img src={closeSymbol} alt="close symbol"/>
       </button>
 
@@ -32,7 +32,7 @@ const PhotoDetailsModal = ({ likesArray, handleLikesArray, showModal, handleShow
       <PhotoList 
         photos={similarPhotosArray}
         likesArray={likesArray} handleLikesArray={handleLikesArray}
-        showModal={showModal} handleShowModal={handleShowModal}
+        modalView={modalView} handleModalView={handleModalView}
         selectedPhoto={selectedPhoto} handleSelectedPhoto={handleSelectedPhoto}
       />
     </div>
