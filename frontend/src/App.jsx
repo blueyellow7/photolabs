@@ -7,6 +7,16 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 
 
 const App = () => {
+  
+  const [likesArray, setLikesArray] = useState([]);
+  const likesStoringFunction = (photoId) => {
+    setLikesArray((prev) => {
+      // first condition: likesStoringFunction is called when like button is clicked. if id already exists in array, that means the photo was UNliked (as id was previously liked and added). Now id needs to be removed from array. remove id using filter: return new array containing all items from prev that =/= photoId
+      // second condition:  If the ID is not in the array, add it and return the new array
+      return prev.includes(photoId) ? prev.filter(id => id !== photoId) : prev = [...prev, photoId];
+
+    })
+  }
 
   // pass down handleShowModal to the onClick listener in the PhotoItemList image, and the PhotoDetailModal [x] button. when photo is clicked, handleShowModal will change showModal state to 'true'. when [x] is clicked it will change to 'false'
   const [showModal, setShowModal] = useState(false);
@@ -28,12 +38,14 @@ const App = () => {
       <HomeRoute 
         photos={photos}
         topics={topics}
+        likesArray={likesArray} likesStoringFunction={likesStoringFunction}
         showModal={showModal} handleShowModal={handleShowModal}
         selectedPhoto={selectedPhoto} handleSelectedPhoto={handleSelectedPhoto}
       />
 
       {/* only if 'showModal' state = true, render PhotoDetailsModal */}
-      { showModal && <PhotoDetailsModal 
+      { showModal && <PhotoDetailsModal
+                        likesArray={likesArray} likesStoringFunction={likesStoringFunction} 
                         showModal={showModal} handleShowModal={handleShowModal}
                         selectedPhoto={selectedPhoto} handleSelectedPhoto={handleSelectedPhoto}
                       /> 
