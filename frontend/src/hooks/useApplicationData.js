@@ -24,6 +24,9 @@ const useApplicationData = () => {
       .then((response) => response.json())
       .then((data) => {
         dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data })
+      })
+      .catch((error) => {
+        console.error('Error fetching photos:', error);
       });
   }, []);
 
@@ -33,6 +36,9 @@ const useApplicationData = () => {
       .then((response) => response.json())
       .then((data) => { 
         dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data })
+      })
+      .catch((error) => {
+        console.error('Error fetching topics:', error);
       });
   }, []);
 
