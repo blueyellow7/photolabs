@@ -55,6 +55,19 @@ const useApplicationData = () => {
       });
   };
 
+  /* function called by onClick event in TopNavigation (logo): 
+    fetches all photos for homepage */
+  const goToHomePage = () => {
+    fetch('api/photos')
+      .then((response) => response.json())
+      .then((data) => { 
+        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data });
+      })
+      .catch((error) => {
+        console.error('Error fetching photos:', error);
+      });
+  };
+
   /* function called by onClick event in PhotoFavButton:
     if likesArray already has photo id related to clicked <3 button, remove id from array -> else, return likesArray with new id */
   const handleLikesArray = (photoId) => {
@@ -108,6 +121,7 @@ const useApplicationData = () => {
     handleModalView,
     handleSelectedPhoto,
     handleSelectedTopic,
+    goToHomePage
   };
 
 };
