@@ -29,7 +29,7 @@ const PhotoListItem = ({ photo, likesArray, handleLikesArray, handleModalView, h
       </div>
       
     </div>
-  )
+  );
 };
 
 export default PhotoListItem;

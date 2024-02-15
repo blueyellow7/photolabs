@@ -4,7 +4,6 @@ import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 
 const HomeRoute = ({ topics, photos, likesArray, handleLikesArray, handleModalView, handleSelectedPhoto, handleSelectedTopic }) => {
-
   return (
     <div className="home-route">
       <TopNavigation topics={topics} likesArray={likesArray} handleSelectedTopic={handleSelectedTopic} />

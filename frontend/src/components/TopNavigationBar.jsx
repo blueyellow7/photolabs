@@ -10,7 +10,7 @@ const TopNavigation = ({ topics, likesArray, handleSelectedTopic }) => {
       <TopicList topics={topics} handleSelectedTopic={handleSelectedTopic} />
       <FavBadge selected={true} likesArray={likesArray} />
     </div>
-  )
-}
+  );
+};
 
 export default TopNavigation;

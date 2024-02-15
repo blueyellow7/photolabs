@@ -6,10 +6,6 @@ import PhotoFavButton from 'components/PhotoFavButton';
 
 
 const PhotoDetailsModal = ({ likesArray, handleLikesArray, handleModalView, selectedPhoto, handleSelectedPhoto }) => {
-
-  // turn similar_photos object within selectedPhoto object into an array 
-  const similarPhotosArray = Object.values(selectedPhoto.similar_photos);
-
   return (
     <div className="photo-details-modal">
       <button onClick={handleModalView} className="photo-details-modal__close-button">
@@ -36,13 +32,13 @@ const PhotoDetailsModal = ({ likesArray, handleLikesArray, handleModalView, sele
 
       <p className="photo-details-modal__header">Similar Photos</p>
       <PhotoList 
-        photos={similarPhotosArray}
+        photos={selectedPhoto.similar_photos}
         likesArray={likesArray} handleLikesArray={handleLikesArray}
         handleModalView={handleModalView}
         handleSelectedPhoto={handleSelectedPhoto}
       />
     </div>
-  )
+  );
 };
 
 export default PhotoDetailsModal;

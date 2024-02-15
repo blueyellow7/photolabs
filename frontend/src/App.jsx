@@ -6,7 +6,7 @@ import useApplicationData from 'hooks/useApplicationData';
 
 
 const App = () => {
-  // custom hook that handles our whole app's state
+  // invoke custom hook that handles the whole app's state:
   const { state, handleLikesArray, handleModalView, handleSelectedPhoto, handleSelectedTopic } = useApplicationData();
 
   return (

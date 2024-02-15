@@ -7,7 +7,7 @@ const FavBadge = ({ likesArray, selected }) => {
     <div className='fav-badge'>
       <FavIcon displayAlert={!!likesArray.length} selected={selected}/>
     </div>
-  ) 
+  ); 
 };
 
 export default FavBadge;

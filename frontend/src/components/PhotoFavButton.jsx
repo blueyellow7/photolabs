@@ -7,7 +7,6 @@ function PhotoFavButton({ photoId, likesArray, handleLikesArray }) {
   return (
     <div className="photo-list__fav-icon" 
       onClick={() => {
-        {/* handleLikesArray adds and removes photoId from likesArray when button is clicked */} 
         handleLikesArray(photoId)
       }}
     >
@@ -17,6 +16,6 @@ function PhotoFavButton({ photoId, likesArray, handleLikesArray }) {
       </div>
     </div>
   );
-}
+};
 
 export default PhotoFavButton;
