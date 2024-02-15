@@ -90,6 +90,18 @@ const useApplicationData = () => {
     dispatch({ type: ACTIONS.LOAD_SELECTED_PHOTO, updatedState: loadSelectedPhoto });
   };
 
+///////////////////////////////// [ CYOA ] /////////////////////////////////////
+
+  /* function called by onClick event in FavBadge:
+    uses state.likesArray to set photo data to only liked photos */
+  
+  const handleAllLikedPhotos = (likesArray) => {
+    const photos = state.photoData
+    const allLikedPhotos = photos.filter(photo => likesArray.includes(photo.id));
+    dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: allLikedPhotos });
+  };
+
+////////////////////////////////////////////////////////////////////////////////
 
   function reducer(state, action) {
     switch (action.type) {
@@ -121,7 +133,8 @@ const useApplicationData = () => {
     handleModalView,
     handleSelectedPhoto,
     handleSelectedTopic,
-    goToHomePage
+    goToHomePage,
+    handleAllLikedPhotos
   };
 
 };
