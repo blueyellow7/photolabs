@@ -16,7 +16,6 @@ const useApplicationData = () => {
     UPDATE_LIKES_ARRAY: 'UPDATE_LIKES_ARRAY',
     TOGGLE_MODAL_VIEW: 'TOGGLE_MODAL_VIEW',
     LOAD_SELECTED_PHOTO: 'LOAD_SELECTED_PHOTO'
-
   }
 
   /* api request to get photos data. store data in 'payload' */
@@ -36,6 +35,7 @@ const useApplicationData = () => {
         dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data })
       })
   }, [])
+
 
   /* 1) function triggered by PhotoFavButton's onClick event:
   if likesArray already has photo id related to clicked <3 button, remove id from array -> else, return likesArray with new id */
@@ -59,6 +59,19 @@ const useApplicationData = () => {
     dispatch({ type: ACTIONS.LOAD_SELECTED_PHOTO, updatedState: loadSelectedPhoto });
   }
   
+  /* 4) function triggered by onClick event in TopicListItem:
+  fetches photos from api related to clicked on topic using topic id as argument. data used to load photos */
+  const handleSelectedTopic = (selectedId) => {
+    fetch(`api/topics/photos/${selectedId}`)
+      .then((response) => response.json())
+      .then((data) => { 
+        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data })
+      })
+      .catch((error) => {
+        console.error('Error fetching photos by topic:', error);
+      });
+  }
+
 
   function reducer(state, action) {
     switch (action.type) {
@@ -85,11 +98,13 @@ const useApplicationData = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return {
-    state, // state = object (keys seen in 'initialState'). eg: to access photo(s) use: state.photoData
+    state,
     handleLikesArray,
     handleModalView,
-    handleSelectedPhoto
+    handleSelectedPhoto,
+    handleSelectedTopic,
   };
+
 };
 
 export default useApplicationData;
