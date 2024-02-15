@@ -1,7 +1,5 @@
 import React from 'react';
 import './App.scss';
-import photos from 'mocks/photos';
-import topics from 'mocks/topics';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import useApplicationData from 'hooks/useApplicationData';
@@ -14,8 +12,8 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute 
-        photos={photos}
-        topics={topics}
+        photos={state.photoData}
+        topics={state.topicData}
         likesArray={state.likesArray} handleLikesArray={handleLikesArray}
         modalView={state.modalView} handleModalView={handleModalView}
         handleSelectedPhoto={handleSelectedPhoto}
