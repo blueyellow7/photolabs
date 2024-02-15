@@ -7,7 +7,7 @@ import useApplicationData from 'hooks/useApplicationData';
 
 const App = () => {
   // invoke custom hook that handles the whole app's state:
-  const { state, handleLikesArray, handleModalView, handleSelectedPhoto, handleSelectedTopic, goToHomePage } = useApplicationData();
+  const { state, handleLikesArray, handleModalView, handleSelectedPhoto, handleSelectedTopic, goToHomePage, handleAllLikedPhotos } = useApplicationData();
 
   return (
     <div className="App">
@@ -19,6 +19,7 @@ const App = () => {
         handleSelectedPhoto={handleSelectedPhoto}
         handleSelectedTopic={handleSelectedTopic}
         goToHomePage={goToHomePage}
+        handleAllLikedPhotos={handleAllLikedPhotos}
       />
 
       {/* only if 'ModalView' state = true, render PhotoDetailsModal */}
